@@ -1,7 +1,9 @@
 package com.asaartech.topupandroid;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Camera;
 import android.graphics.ImageFormat;
@@ -29,6 +31,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Size;
 import android.util.SparseIntArray;
+import android.view.MenuItem;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
@@ -48,6 +51,8 @@ import java.util.Date;
 import java.util.List;
 
 public class ScanActivity extends AppCompatActivity {
+
+    String carrier;
 
     private ImageButton btnCapture;
     private TextureView textureView;
@@ -144,6 +149,13 @@ public class ScanActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        carrier = getIntent().getStringExtra("CARRIER");
+        setTitle(carrier);
+
         createImageFolder();
 
         textureView = (TextureView) findViewById(R.id.textureView);
@@ -154,8 +166,35 @@ public class ScanActivity extends AppCompatActivity {
             public void onClick(View view) {
                 lockFocus();
                 checkWriteStoragePermission();
+                Toast.makeText(ScanActivity.this, "Scan Complete!", Toast.LENGTH_LONG).show();
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent nav = new Intent(getBaseContext(), TopUpActivity.class);
+                        nav.putExtra("CARRIER", carrier);
+                        startActivity(nav);
+                    }
+                },2000);
+
+                ProgressDialog progress = new ProgressDialog(getBaseContext());
+                progress.setMessage("Scanning");
+                progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                progress.setIndeterminate(true);
+
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            this.closeCamera();
+            this.finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     //to see if textureview is available... if not it will initialize it
@@ -350,7 +389,7 @@ public class ScanActivity extends AppCompatActivity {
 
     private void createImageFolder() {
         File imageFile = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-        imageFolder = new File(imageFile, "Camera2VideoImage");
+        imageFolder = new File(imageFile, "stu");
         if (!imageFolder.exists()) {
             imageFolder.mkdir();
         }
@@ -413,7 +452,6 @@ public class ScanActivity extends AppCompatActivity {
                     Integer afState = captureResult.get(CaptureResult.CONTROL_AF_STATE);
                     if (afState == CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED ||
                             afState == CaptureResult.CONTROL_AF_STATE_NOT_FOCUSED_LOCKED) {
-                        Toast.makeText(ScanActivity.this, "AF Locked!", Toast.LENGTH_SHORT).show();
                         startStillCaptureRequest();
                     }
                     break;

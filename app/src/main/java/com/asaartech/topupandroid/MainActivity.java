@@ -189,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
 
     /////////For Click Events///////////////////
     public void btn_clicked(View v) {
-        Intent nav = new Intent(this, CameraActivity.class);
+        Intent nav = new Intent(this, ScanActivity.class);
         ////////////////////////For Recharge//////////////////////
         if (v.getId() == R.id.ntcRechargeLayout) {
             nav.putExtra("CARRIER", "TopUp NTC");
