@@ -13,4 +13,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="take_picture">Top Up</string>
+
+    <string name="camera_button">Camera Capture Button</string>
 </resources>
