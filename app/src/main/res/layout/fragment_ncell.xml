@@ -1,0 +1,138 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="layout.NCell"
+    android:id="@+id/ncellRelativeLayout">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/ncellMainLinearLayout"
+        android:layout_margin="5dp">
+
+        <LinearLayout
+            android:id="@+id/ncellRechargeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginBottom="10dp"
+            android:clickable="true"
+            android:onClick="btn_clicked"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/rechargeView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="2.5dp"
+                android:layout_weight="0.19"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:gravity="fill"
+                android:src="@drawable/rechargecard"
+                android:background="@color/ncell1"/>
+
+            <TextView
+                android:id="@+id/rechargeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="2.5dp"
+                android:layout_weight="0.93"
+                android:background="@drawable/ncellborder1"
+                android:gravity="fill"
+                android:text="TopUp\nBalance"
+                android:textAlignment="center"
+                android:textColor="@color/ncell1"
+                android:textSize="26sp"
+                />
+
+
+        </LinearLayout>
+
+        <!--**********************For Balance Enquiry**********************-->
+
+        <LinearLayout
+            android:id="@+id/ncellBalanceLayout"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginBottom="10dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:onClick="btn_clicked"
+            android:orientation="horizontal"            >
+
+            <ImageView
+                android:id="@+id/balanceView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="2.5dp"
+                android:layout_weight="0.19"
+                android:gravity="fill"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:src="@drawable/balanceinquiry"
+                android:background="@color/ncell2"/>
+
+            <TextView
+                android:id="@+id/balanceButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="2.5dp"
+                android:layout_weight="0.93"
+                android:background="@drawable/ncellborder2"
+                android:gravity="fill"
+                android:text="Balance\nEnquiry"
+                android:textAlignment="center"
+                android:textColor="@color/ncell2"
+                android:textSize="26sp"/>
+
+        </LinearLayout>
+
+        <!--**********************For Balance Enquiry**********************-->
+        <LinearLayout
+            android:id="@+id/ncellBalanceTransferLayout"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:onClick="btn_clicked"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/balanceTransferView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="2.5dp"
+                android:layout_weight="0.19"
+                android:gravity="fill"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:src="@drawable/balancetransfer"
+                android:background="@color/ncell1"/>
+
+            <!--android:background="@color/colorButton1"-->
+
+            <TextView
+                android:id="@+id/balanceTransferButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="2.5dp"
+                android:layout_weight="0.93"
+                android:background="@drawable/ncellborder1"
+                android:gravity="fill"
+                android:text="Balance\nTransfer"
+                android:textAlignment="center"
+                android:textColor="@color/ncell1"
+                android:textSize="26sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
