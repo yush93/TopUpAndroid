@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout.setupWithViewPager(mViewPager);
 
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_menu_gallery);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_menu_camera);
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_sim_card_black_24dp);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_sim_card_black_24dp);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
