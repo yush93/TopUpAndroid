@@ -39,7 +39,12 @@ public class MainActivity extends AppCompatActivity {
         
         ///////////////////////////////Asking Permission with user////////////////////////////////
         ActivityCompat.requestPermissions(MainActivity.this,
-                new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_CONTACTS, Manifest.permission.CALL_PHONE},
+                new String[]{
+                                Manifest.permission.CAMERA,
+                                Manifest.permission.READ_CONTACTS,
+                                Manifest.permission.CALL_PHONE,
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                Manifest.permission.READ_EXTERNAL_STORAGE},
                 1);
 
 

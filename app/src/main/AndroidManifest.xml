@@ -21,8 +21,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivity"
+        <activity android:name=".MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
@@ -32,14 +31,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".CameraActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".BalanceTransferActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".ScanActivity" />
-        <activity android:name=".TopUpActivity"></activity>
+        <activity android:name=".CameraActivity" android:screenOrientation="portrait" />
+        <activity android:name=".BalanceTransferActivity" android:screenOrientation="portrait" />
+        <activity android:name=".ScanActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".TopUpActivity" android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

@@ -162,8 +162,6 @@ public class ScanActivity extends AppCompatActivity {
 
         hasFlash = getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
 
-
-
         carrier = getIntent().getStringExtra("CARRIER");
         setTitle(carrier);
 
@@ -425,7 +423,8 @@ public class ScanActivity extends AppCompatActivity {
     private File createImageFileName() throws IOException {
         imageFile = new File(imageFolder, "myImage.jpg");
         imageFile.createNewFile();
-        imageFileName = imageFile.getAbsolutePath();
+        //imageFileName = imageFile.getAbsolutePath();
+        imageFileName = imageFile.getPath();
         return imageFile;
     }
 
@@ -453,6 +452,7 @@ public class ScanActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
