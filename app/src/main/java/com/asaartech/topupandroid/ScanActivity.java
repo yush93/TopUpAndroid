@@ -27,6 +27,7 @@ import android.os.HandlerThread;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Size;
@@ -53,8 +54,11 @@ import java.util.List;
 public class ScanActivity extends AppCompatActivity {
 
     String carrier;
+    private static boolean FLASH_STATE = false;
+
 
     private ImageButton btnCapture;
+    private ImageButton btnFlash;
     private TextureView textureView;
     private TextureView.SurfaceTextureListener surfaceTextureListener = new TextureView.SurfaceTextureListener() {
         @Override
@@ -138,6 +142,9 @@ public class ScanActivity extends AppCompatActivity {
         }
     }
 
+
+
+
     private void closeCamera() {
         if (cameraDevice != null) {
             cameraDevice.close();
@@ -145,7 +152,7 @@ public class ScanActivity extends AppCompatActivity {
         }
     }
 
-    @Override
+    boolean hasFlash;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan);
@@ -153,12 +160,36 @@ public class ScanActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        hasFlash = getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
+
+
+
         carrier = getIntent().getStringExtra("CARRIER");
         setTitle(carrier);
 
         createImageFolder();
 
         textureView = (TextureView) findViewById(R.id.textureView);
+
+        btnFlash = (ImageButton)findViewById(R.id.btnFlash);
+        btnFlash.setImageResource(R.drawable.ic_flash_on_black_24dp);
+
+
+
+        btnFlash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!FLASH_STATE){
+                    //Turn on flash
+                    btnFlash.setImageResource(R.drawable.ic_flash_on_black_24dp);
+                    FLASH_STATE = true;
+                } else {
+                    btnFlash.setImageResource(R.drawable.ic_flash_off_black_24dp);
+                    FLASH_STATE = false;
+                    //turn off flash
+                }
+            }
+        });
 
         btnCapture = (ImageButton) findViewById(R.id.btnCapture);
         btnCapture.setOnClickListener(new View.OnClickListener() {
@@ -176,11 +207,6 @@ public class ScanActivity extends AppCompatActivity {
                         startActivity(nav);
                     }
                 },2000);
-
-                ProgressDialog progress = new ProgressDialog(getBaseContext());
-                progress.setMessage("Scanning");
-                progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                progress.setIndeterminate(true);
 
             }
         });
@@ -542,4 +568,10 @@ public class ScanActivity extends AppCompatActivity {
             }
         }
     }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////
+    //For flash
+
+
 }

@@ -4,6 +4,8 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Environment;
@@ -47,22 +49,24 @@ public class TopUpActivity extends AppCompatActivity {
 
         if(imgFile.exists()){
 
-//            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-
-//            Uri uri = Uri.fromFile(imgFile);
-//            imageView.setImageURI(uri);
-//            performCrop(uri);
-
             Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getPath());
-//            myBitmap.setWidth(imageView.getWidth());
-//            myBitmap.setHeight(imageView.getHeight());
+            int width = myBitmap.getWidth();
+            int height = myBitmap.getHeight();
+            Matrix matrix = new Matrix();
+            matrix.postRotate(90);
 
-            imageView.setImageBitmap(myBitmap);
-            imageView.setRotation(90);
+            Bitmap resizedBitmap = Bitmap.createBitmap(myBitmap, 0, 0,
+                    width, height, matrix, true);
 
+            // make a Drawable from Bitmap to allow to set the BitMap
+            // to the ImageView, ImageButton or what ever
+            BitmapDrawable bitmapDrawable = new BitmapDrawable(resizedBitmap);
 
+            imageView.setImageDrawable(bitmapDrawable);
 
-            Toast.makeText(this, "Image Loaded", Toast.LENGTH_SHORT).show();
+            // center the Image
+            imageView.setScaleType(ImageView.ScaleType.FIT_START);
+
 
         }
     }
