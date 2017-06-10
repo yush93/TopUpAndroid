@@ -16,121 +16,125 @@
         android:id="@+id/ncellMainLinearLayout"
         android:layout_margin="5dp">
 
-        <LinearLayout
+        <android.support.v7.widget.CardView
             android:id="@+id/ncellRechargeLayout"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
             android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:foreground="@drawable/custom_ripple_borederless"
             android:onClick="btn_clicked"
-            android:orientation="horizontal">
+            app:cardBackgroundColor="#9B59B6"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="4dp">
 
-            <ImageView
-                android:id="@+id/rechargeView"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="2.5dp"
-                android:layout_weight="0.19"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:gravity="fill"
-                android:src="@drawable/rechargecard"
-                android:background="@color/ncell1"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/rechargeButton"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="2.5dp"
-                android:layout_weight="0.93"
-                android:background="@drawable/ncellborder1"
-                android:gravity="fill"
-                android:text="TopUp\nBalance"
-                android:textAlignment="center"
-                android:textColor="@color/ncell1"
-                android:textSize="26sp"
-                />
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_phone_android_black_24dp" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/imageView1"
+                    android:gravity="center"
+                    android:text="Balance\nTopUp"
+                    android:textColor="#ffffff"
+                    android:textSize="30dp" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
 
-        </LinearLayout>
-
-        <!--**********************For Balance Enquiry**********************-->
-
-        <LinearLayout
+        <android.support.v7.widget.CardView
             android:id="@+id/ncellBalanceLayout"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:layout_marginBottom="10dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
             android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:foreground="@drawable/custom_ripple_borederless"
             android:onClick="btn_clicked"
-            android:orientation="horizontal"            >
+            app:cardBackgroundColor="#8E44AD"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="4dp">
 
-            <ImageView
-                android:id="@+id/balanceView"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="2.5dp"
-                android:layout_weight="0.19"
-                android:gravity="fill"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:src="@drawable/balanceinquiry"
-                android:background="@color/ncell2"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/balanceButton"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="2.5dp"
-                android:layout_weight="0.93"
-                android:background="@drawable/ncellborder2"
-                android:gravity="fill"
-                android:text="Balance\nEnquiry"
-                android:textAlignment="center"
-                android:textColor="@color/ncell2"
-                android:textSize="26sp"/>
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/balanceinquiry" />
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/imageView2"
+                    android:gravity="center"
+                    android:text="Balance\nEnquiry"
+                    android:textColor="#ffffff"
+                    android:textSize="30dp" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
 
-        <!--**********************For Balance Enquiry**********************-->
-        <LinearLayout
+        <android.support.v7.widget.CardView
             android:id="@+id/ncellBalanceTransferLayout"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
             android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:foreground="@drawable/custom_ripple_borederless"
             android:onClick="btn_clicked"
-            android:orientation="horizontal">
+            app:cardBackgroundColor="#BF55EC"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="4dp">
 
-            <ImageView
-                android:id="@+id/balanceTransferView"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="2.5dp"
-                android:layout_weight="0.19"
-                android:gravity="fill"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:src="@drawable/balancetransfer"
-                android:background="@color/ncell1"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <!--android:background="@color/colorButton1"-->
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/balancetransfer" />
 
-            <TextView
-                android:id="@+id/balanceTransferButton"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="2.5dp"
-                android:layout_weight="0.93"
-                android:background="@drawable/ncellborder1"
-                android:gravity="fill"
-                android:text="Balance\nTransfer"
-                android:textAlignment="center"
-                android:textColor="@color/ncell1"
-                android:textSize="26sp" />
-
-        </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/imageView3"
+                    android:gravity="center"
+                    android:text="Balance\nTransfer"
+                    android:textColor="#ffffff"
+                    android:textSize="30dp" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
 
 
     </LinearLayout>

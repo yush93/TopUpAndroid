@@ -65,14 +65,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_sim_card_black_24dp);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_sim_card_black_24dp);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
 
     }
     
@@ -236,8 +229,10 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Intent tNav = new Intent(this, BalanceTransferActivity.class);
             tNav.putExtra("CARRIER", "NCell Transfer");
+            Snackbar.make(v, "Transfer Balance", Snackbar.LENGTH_LONG).show();
             startActivity(tNav);
-            Toast.makeText(this, "Transfer", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "Transfer", Toast.LENGTH_LONG).show();
+
         }
     }
 
