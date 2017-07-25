@@ -30,7 +30,7 @@
             android:foreground="?attr/selectableItemBackgroundBorderless"
             android:onClick="btn_clicked"
             app:cardBackgroundColor="#9B59B6"
-            app:cardCornerRadius="10dp"
+            app:cardCornerRadius="0dp"
             app:cardElevation="4dp">
 
             <RelativeLayout
@@ -70,7 +70,7 @@
             android:foreground="?attr/selectableItemBackgroundBorderless"
             android:onClick="btn_clicked"
             app:cardBackgroundColor="#8E44AD"
-            app:cardCornerRadius="10dp"
+            app:cardCornerRadius="0dp"
             app:cardElevation="4dp">
 
             <RelativeLayout
@@ -110,7 +110,7 @@
             android:foreground="?attr/selectableItemBackgroundBorderless"
             android:onClick="btn_clicked"
             app:cardBackgroundColor="#BF55EC"
-            app:cardCornerRadius="10dp"
+            app:cardCornerRadius="0dp"
             app:cardElevation="4dp">
 
             <RelativeLayout
